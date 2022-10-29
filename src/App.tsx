@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import React from 'react';
+import './App.scss';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import Login from './pages/login';
+import Register from './pages/register';
+import { AuthContextProvider } from './auth/authContext';
+import Logout from './pages/logout/logout';
+import Hero from './pages/hero/hero';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <main id="App">
+          <Routes>
+            <Route path={Login.Route} element={<Login.Page/>}/>
+            <Route path={Register.Route} element={<Register.Page/>}/>
+            <Route path={Logout.Route} element={<Logout.Page/>}/>
+            <Route path={Hero.Route} element={<Hero.Page/>}/>
+
+            {/* <Route path='*' element={<Home/>}/> // 404 page not found  */}
+          </Routes>
+        </main>
+      </AuthContextProvider>
+    </BrowserRouter>
   );
 }
 

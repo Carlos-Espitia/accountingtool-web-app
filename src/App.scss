@@ -1,0 +1,23 @@
+@import './scss/Variables.module.scss';
+
+@font-face {
+  src: url('./fonts/OpenSans.ttf') format('truetype');
+  font-family: 'OpenSans';
+}
+
+
+* {
+  // overide default styles
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  // overide default styles
+  font-family: 'OpenSans', sans-serif;
+}
+
+body {
+  background-color: $color1;
+  overflow-x: hidden; //remove side x scroll
+}
